@@ -24,3 +24,13 @@ module.exports.postColaborator = async (application, req, res) => {
         res.status(400).send({error: err});
     });
 }
+
+module.exports.putColaborador = async (application, req, res) => {
+    const {nome, salario, cargaHoraria} = req.body;
+    const id = req.params.id;
+    await Colaborador.update({nome, salario, cargaHoraria}, {where: {id}}).then(result => {
+        res.status(201).send(result);
+    }).catch(err => {
+        res.send({error: err});
+    })
+}

@@ -10,4 +10,8 @@ module.exports = (application) => {
     application.post('/colaborators', (req, res) => {
         application.app.controllers.colaborador.postColaborator(application, req, res);
     })
+
+    application.put('/colaborators/:id', (req, res) => {
+        application.app.controllers.colaborador.putColaborador(application, req, res);
+    })
 }
