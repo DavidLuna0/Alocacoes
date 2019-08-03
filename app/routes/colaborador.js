@@ -14,4 +14,8 @@ module.exports = (application) => {
     application.put('/colaborators/:id', (req, res) => {
         application.app.controllers.colaborador.putColaborador(application, req, res);
     })
+
+    application.delete('/colaborators/:id', (req, res) => {
+        application.app.controllers.colaborador.deleteColaborador(application, req, res);
+    })
 }

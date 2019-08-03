@@ -34,3 +34,14 @@ module.exports.putColaborador = async (application, req, res) => {
         res.send({error: err});
     })
 }
+
+module.exports.deleteColaborador = async (application, req, res) => {
+    const id = req.params.id;
+    Colaborador.findByPk(id).then(colaborador => {
+        colaborador.destroy().then(result => {
+            res.send(result);
+        });
+    }).catch(err => {
+        res.send({error: err})
+    })
+}
