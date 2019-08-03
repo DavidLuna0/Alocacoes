@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Company.associate = (models) => {
-    Company.hasMany(models.User, {as: 'employes'})
+    /* Company.hasMany(models.User, {as: 'employes'}) */
   };
   return Company;
 };

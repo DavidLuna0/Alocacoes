@@ -1,13 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Skill = sequelize.define('Skill', {
-    name: DataTypes.STRING
+    nome: DataTypes.STRING
   }, {});
   Skill.associate = (models) => {
-    Skill.belongsToMany(models.User, {
-      through: 'UserSkill',
+    Skill.belongsToMany(models.Colaborador, {
+      through: 'ColaboradorSkill',
       foreignKey: 'skillId',
-      as: 'users'
+      as: 'colaboradores'
     })
   };
   return Skill;

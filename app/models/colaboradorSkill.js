@@ -1,11 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const UserSkill = sequelize.define('UserSkill', {
-    userId: {
+  const ColaboradorSkill = sequelize.define('ColaboradorSkill', {
+    colaboradorId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'User',
+        model: 'Colaborador',
         key: 'id'
       }
     },
@@ -18,5 +18,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   }, {});
-  return UserSkill;
+  return ColaboradorSkill;
 };

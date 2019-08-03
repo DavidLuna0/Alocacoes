@@ -2,33 +2,25 @@
 
 module.exports = {
   up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable('Colaboradores', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      name: {
+      nome: {
         allowNull: false,
         type: DataTypes.STRING,
       },
-      email: {
+      salario: {
         allowNull: false,
-        type: DataTypes.STRING,
+        type: DataTypes.FLOAT,
         unique: true,
       },
-      password: {
+      cargaHoraria: {
         allowNull: false,
         type: DataTypes.STRING,
-      },
-      companyId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Companies',
-          key: 'id'
-        }
       },
       createdAt: {
         allowNull: false,

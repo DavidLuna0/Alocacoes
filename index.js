@@ -1,18 +1,15 @@
-const express = require('express');
+const app = require('./config/server');
 const models = require('./app/models')
-const { User, Company, Skill, UserSkill } = require('./app/models');
-const bodyParser = require('body-parser');
+/* const { User, Company, Skill, UserSkill } = require('./app/models');
+const bodyParser = require('body-parser');  */
 
-const app = express();
+/* const app = express();
 
 app.use(express.urlencoded({ extended: false}));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); */
 
-app.get('/', (req, res) => {
-    res.send('Seja bem vindo a aplicação');
-});
 
-app.get('/users', async (req, res) => {
+/* app.get('/users', async (req, res) => {
     await User.findAll().then(result => {
         res.status(200).send(result);
     }).catch(err => {
@@ -109,7 +106,7 @@ app.delete('/users/:id', (req, res) => {
     }).catch(err => {
         res.send({error: err})
     })
-});
+}); */
 
 const port = process.env.PORT || 3000;
 models.sequelize.sync().then(() => {
