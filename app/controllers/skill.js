@@ -18,6 +18,7 @@ module.exports.getSkillById = async (application, req, res) => {
 
 module.exports.postSkill = async (application, req, res) => {
     const nome = req.body;
+    console.log(nome)
     await Skill.create(nome).then(result => {
         res.status(200).send(result);
     }).catch(err => {

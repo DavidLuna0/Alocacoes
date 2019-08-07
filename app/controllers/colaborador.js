@@ -1,4 +1,4 @@
-const { Colaborador } = require('../models');
+const { Colaborador, Skill } = require('../models');
 
 module.exports.getAllColaborators = async (application, req, res) => {
     await Colaborador.findAll().then(result => {
@@ -43,5 +43,24 @@ module.exports.deleteColaborador = async (application, req, res) => {
         });
     }).catch(err => {
         res.send({error: err})
+    })
+}
+
+module.exports.postColaboratorSkill = async (application, req, res) => {
+    const {nome, salario, cargaHoraria, id} = req.body;
+    Colaborador.create({nome, salario, cargaHoraria}).then(result => {
+        result.addSkill([id]).then(resposta => {
+            res.status(200).send(resposta);
+        })
+    })
+};
+
+module.exports.getColaboratorsSkills = async (application, req, res) => {
+    Colaborador.findAll({
+        include: 'skills'
+    }).then(result => {
+        res.status(200).send(result);
+    }).catch(err => {
+        res.status(400).send(err);
     })
 }

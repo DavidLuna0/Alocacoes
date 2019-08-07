@@ -7,8 +7,16 @@ module.exports = (application) => {
         application.app.controllers.colaborador.getColaboratorById(application, req, res);
     });
 
+    application.get('/colaborators/skills', (req, res) => {
+        application.app.controllers.colaborador.getColaboratorsSkills(application, req, res);
+    })
+
     application.post('/colaborators', (req, res) => {
         application.app.controllers.colaborador.postColaborator(application, req, res);
+    })
+
+    application.post('/colaborators/skills', (req, res) => {
+        application.app.controllers.colaborador.postColaboratorSkill(application, req, res);
     })
 
     application.put('/colaborators/:id', (req, res) => {
